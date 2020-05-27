@@ -1,0 +1,1078 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<meta charset="UTF-8">
+
+<!--
+<link type="text/css" rel="stylesheet" href="C:\Fluig\fluigstyle\fluig-style-guide.min.css" />
+<script type="text/javascript" src="c:\Fluig\fluigstyle\jquery.js"></script>
+<script type="text/javascript" src="c:\Fluig\fluigstyle\jquery-ui.min.js"></script>
+<script type="text/javascript" src="c:\Fluig\fluigstyle\mustache-min.js"></script>
+<script type="text/javascript" src="c:\Fluig\fluigstyle\fluig-style-guide.min.js" charset="utf-8"></script>
+<script src="c:\Fluig\fluigstyle\fluig-style-guide-chart.min.js"></script>
+-->
+
+<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+<script type="text/javascript" src="customizado.js"></script>
+<script type="text/javascript" src="funcoesgenericas.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+</head>
+<body onload="init();">
+<div class="fluig-style-guide">
+<form name="form" role="form" id="form">
+<div class="panel-group" id="geral">
+<div class="bs-docs-example">
+
+  	<ul id="myTab" class="nav nav-tabs">         	
+    	<li class="dropdown">
+      	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id='id_nomeMenu' class="fluigicon fluigicon-text-justified fluigicon-sm" ></span><b class="caret"></b></a>
+      	<ul class="dropdown-menu">
+       		<li>
+       			<a href="#op_principal" id='id_op_principal' onclick='fnNomeAba(this);' data-toggle="tab"><span class="fluigicon fluigicon-home icon-sm"></span>&nbsp;Dados da Solicitação</a>
+       		</li>
+       		<li>
+       			<a href="#op_historico"	id='id_op_historico' onclick='fnNomeAba(this);fnMostraHistGeral();' data-toggle="tab"><span class="fluigicon fluigicon-tests-central icon-sm"></span>&nbsp;Histórico Geral</a>
+       		</li>
+       		<li>
+       			<a href="#op_cancela" 	id='id_op_cancela' 	 onclick='fnNomeAba(this);' data-toggle="tab"><span class="fluigicon fluigicon-remove-circle icon-sm"></span>&nbsp;Cancelamento</a>
+       		</li>
+       		<li>
+       			<a href="#op_ajuda" id='id_ajuda' onclick='fnNomeAba(this);' data-toggle="tab"><span class="fluigicon fluigicon-question-sign icon-sm"></span>&nbsp;Ajuda</a>
+       		</li>
+       		<li>
+       			<a href="#op_sobre"	id='id_sobre' onclick='fnNomeAba(this);fnSobre();' data-toggle="tab"><span class="fluigicon fluigicon-info-sign icon-sm"></span>&nbsp;Sobre</a>
+       		</li>
+      	</ul>
+    	</li>
+    	<div><br>&nbsp;&nbsp;
+           	<span id='span_Voltar' style="cursor:pointer;display: none;" onclick='$("#id_op_principal").click();'>
+           		<span class="fluigicon fluigicon-arrow-left icon-sm"></span>&nbsp;
+       		</span>
+    		<b id='id_nomeTitulo'></b>
+    	</div>
+  	</ul>
+  	<!--=======================================================================================-->  
+    <!-- campos ocultos                                                                        -->  
+    <!--=======================================================================================-->  
+
+	<!-- identificador é o campo customizado que servirá como descritor do registro -->
+	<input type="hidden" name="identificador" 		id="identificador">
+
+	<input type="hidden" name="loginRespAtual" 		id="loginRespAtual">
+	<input type="hidden" name="atividadeAtual" 		id="atividadeAtual">
+	<input type="hidden" name="descAtividadeAtual" 	id="descAtividadeAtual">
+
+	<input type="hidden" name="matriculaSolicitante" id="matriculaSolicitante" readonly>
+	<input type="hidden" name="situacao" id="situacao" readonly>
+	
+	<input type="hidden" name="nomeClienteAbrev" 	id="nomeClienteAbrev" readonly>
+	<input type="hidden" name="dtSolicitacao"       id="dtSolicitacao" readonly>
+	<input type="hidden" name="dtSolicitacaoHidden" id="dtSolicitacaoHidden" readonly>
+
+	<!--  Transferencia do Processo -->
+	<input type="hidden"  id="h_escolhaAPITransfer" name="h_escolhaAPITransfer" value="">
+	<input type="hidden"  id="h_jsonInAPITransfer"  name="h_jsonInAPITransfer"  value="">
+	<input type="hidden"  id="h_retornoAPITransfer" name="h_retornoAPITransfer" value="">
+
+<div id="myTabContent" class="tab-content">
+
+    <!--=======================================================================================-->  
+    <!-- op_principal                                                                          -->  
+    <!--=======================================================================================-->  
+    <div class="tab-pane fade in active" id="op_principal">
+
+		<p><a name="pontoPainel_4"></a></p>  
+        <!--=======================================================================================-->  
+      	<!-- painel - 1 Inicio                                                                     -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id="painel_ativ_4">
+        	<div class="panel-heading">          
+          		<div class="row">
+          		    <div class="col-xs-12 col-md-12">
+	            		<a class="collapse-icon up" data-toggle="collapse" href="#painelA_ativ_4">
+	            			<h4 class="panel-title">
+	            				<b><span id='txtDescWorkflow'>a</span>                	
+                				<span class="pull-right">
+                					<span id="span_num_dias_projeto_aberto"></span>
+                				</span> 
+                				</b>
+                			</h4>
+            			</a>
+						<span id="listaProcesso">
+							<br><small id='txtDescSubProcesso'></small><br>
+						</span>				
+						<em><br><span class="label label-success" id="span_4"></span></em>
+						<input type="hidden" name="vUserSpan_4" id="vUserSpan_4" value="">
+						<input type="hidden" name="vDateSpan_4" id="vDateSpan_4" value="">
+		        	</div>
+		        </div>
+        	</div>
+	        <!--=======================================================================================-->  
+	      	<!-- campos                                                                                -->  
+	     	<!--=======================================================================================-->  
+			<div id="painelA_ativ_4" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div class="row">
+						<div class="alert alert-warning" role="alert" id="msgPesquisandoSolic" style="display:none;">
+							<b><center>Pesquisando Solicitante...</center></b>
+						</div>
+					</div>
+
+					<div class="form-group" id='div_btDetSolic'>
+						<div class="row">
+							<div class="col-sm-1">
+							    <button type="button" name="btDetSolic" class="btn btn-warning" onclick="fnMostraOcultaDiv('div_DetSolic');">Detalhes da Solicitação</button>
+							</div>
+					    </div>
+					</div> <!-- form-group -->
+
+			      	<div id='div_DetSolic' style="display: none;">
+
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-12 col-md-2">
+									<label>Nr Solicitação</label>		
+									<input type="text" class="form-control" name="nrSolic" id="nrSolic" readonly>
+								</div>
+								<div class="col-xs-12 col-md-2">
+									<label>Situação</label>
+									<input type="text" class="form-control" name="situacaoSolic" id="situacaoSolic" readonly>
+								</div>
+								<div class="col-xs-6 col-md-2">
+									<label>Dt Abertura</label>							
+									<input type="text" class="form-control" name="dtAberturaSolic" id="dtAberturaSolic" readonly>
+									<input type="hidden" class="form-control" name="dtAberturaSolic_EN" id="dtAberturaSolic_EN" readonly>
+								</div>
+								<div class="col-xs-6 col-md-2">
+									<label>Hora</label>
+									<input type="text" class="form-control" name="hrAberturaSolic" id="hrAberturaSolic" readonly>
+								</div>
+								<div class="col-xs-6 col-md-2">
+									<label>Dt Encerramento</label>
+									<input type="text" class="form-control" name="dtFimSolic"      id="dtFimSolic" readonly>
+									<input type="hidden" class="form-control" name="dtFimSolic_EN" id="dtFimSolic_EN" readonly>
+								</div>
+								<div class="col-xs-6 col-md-2">
+									<label>Hora</label>
+									<input type="text" class="form-control" name="hrFimSolic" id="hrFimSolic" readonly>
+								</div>
+								
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+										<label id='lbl_nmUserAberturaSolic' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Solicitante&nbsp;&nbsp;<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span></label>		
+									<div class="input-group">
+										<input type="text" class="form-control" name="nmUserAberturaSolic" id="nmUserAberturaSolic" readonly>
+										<input type="hidden" class="form-control" name="loginUserAberturaSolic" id="loginUserAberturaSolic" readonly>
+								        <div class="input-group-addon">
+								        	<span class="fluigicon fluigicon-book" style="cursor:pointer;" onclick="fnMostraOcultaDiv('div_nmUserAbertura');fnOcultaDiv('div_txtEmNome');" data-toggle="tooltip" data-placement="top" title="Detalhar"></span>        
+								        </div>
+									</div>
+								</div>
+					        	<div class="col-xs-12 col-md-6">
+									<label id='lbl_txtEmNome' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Em nome de
+										<span style="color:red">*</span>&nbsp;
+										<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+									</label>		
+								    <div class="input-group">
+										<input type="zoom" name="txtEmNome" id="txtEmNome" class="form-control" 
+											data-zoom="{
+											'displayKey':'colleagueName','datasetId':'colleague',
+											'filterValues': 'active,true',
+											'fields':[
+												{'field':'colleagueId','label':'ID','visible':'false'},
+												{'field':'colleagueName','label':'Em nome','standard':true,'search':true}
+											]}">
+										<input type="hidden" name="loginEmNome" id="loginEmNome">
+								        <div class="input-group-addon">
+								        	<span class="fluigicon fluigicon-book" style="cursor:pointer;" onclick="fnMostraOcultaDiv('div_txtEmNome');fnOcultaDiv('div_nmUserAbertura');" data-toggle="tooltip" data-placement="top" title="Detalhar"></span>        
+								        </div>
+									</div>
+							    </div>					
+							</div>
+						</div>
+
+						<!-- ============================================================== -->
+						<!-- detalhes do nmUserAbertura                                     -->
+						<!-- ============================================================== -->
+						<div id='div_nmUserAbertura' style="display:none;">
+							<div class="form-group">
+							    <div class="panel panel-info" style="background-color:#d9edf7">
+						            <div class="panel-heading">
+								        <label style="cursor:pointer;" onclick="$('#div_nmUserAbertura').hide();">Solicitante
+								        <span class="fluigicon fluigicon-remove-circle fluigicon-xs fs-cursor-pointer fs-color-info"></span>
+								    	</label>
+						            </div>				        
+						            <div class="panel-body">
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Empresa</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="txtEmpUserAberturaSolic" id="txtEmpUserAberturaSolic" readonly>
+										            <input type="hidden" class="form-control" name="codEmpUserAberturaSolic" id="codEmpUserAberturaSolic">
+										            <input type="hidden" class="form-control" name="nmEmpUserAberturaSolic" id="nmEmpUserAberturaSolic">
+										        </div>
+									        </div> 
+										</div> 
+										<div class="form-group">									
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Estabelecimento</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="txtEstUserAberturaSolic" id="txtEstUserAberturaSolic" readonly>
+										            <input type="hidden" class="form-control" name="codEstUserAberturaSolic" id="codEstUserAberturaSolic">
+										            <input type="hidden" class="form-control" name="nmEstUserAberturaSolic" id="nmEstUserAberturaSolic">
+										        </div>
+									        </div> 
+										</div> 
+									
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Centro de Custo</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="txtCustoUserAberturaSolic" id="txtCustoUserAberturaSolic" readonly>
+										            <input type="hidden" class="form-control" name="codCustoUserAberturaSolic" id="codCustoUserAberturaSolic">
+										            <input type="hidden" class="form-control" name="nmCustoUserAberturaSolic" id="nmCustoUserAberturaSolic">
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Ramal</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="ramalUserAberturaSolic" id="ramalUserAberturaSolic" readonly>
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Telefone</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="foneUserAberturaSolic" id="foneUserAberturaSolic" readonly>
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Chefe Imediato</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="nmChefeUserAberturaSolic" id="nmChefeUserAberturaSolic" readonly>
+										            <input type="hidden" class="form-control" name="loginChefeUserAberturaSolic" id="loginChefeUserAberturaSolic">									            
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<input type="hidden" name="situacaoUserAberturaSolic" id="situacaoUserAberturaSolic" readonly>
+										<input type="hidden" name="tipoUserAberturaSolic"     id="tipoUserAberturaSolic" readonly>				
+									</div> <!-- panel-boby -->
+		  		                </div> <!-- panel -->
+					        </div>
+						</div> <!-- fim div_nmUserAbertura -->
+
+						<!-- ============================================================== -->
+						<!-- detalhes do txtEmNome                                          -->
+						<!-- ============================================================== -->
+						<div id='div_txtEmNome' style="display:none;">
+							<div class="form-group">
+							    <div class="panel panel-info" style="background-color:#d9edf7">
+						            <div class="panel-heading">
+								        <label style="cursor:pointer;" onclick="$('#div_txtEmNome').hide();">Em nome de
+								         	<span class="fluigicon fluigicon-remove-circle fluigicon-xs fs-cursor-pointer fs-color-info"></span>
+								    	</label>
+						            </div>				        
+						            <div class="panel-body">
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Empresa</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="txtEmpUserEmNome" id="txtEmpUserEmNome" readonly>
+										            <input type="hidden" class="form-control" name="codEmpUserEmNome" id="codEmpUserEmNome">
+										            <input type="hidden" class="form-control" name="nmEmpUserEmNome" id="nmEmpUserEmNome">
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Estabelecimento</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="txtEstUserEmNome" id="txtEstUserEmNome" readonly>
+										            <input type="hidden" class="form-control" name="codEstUserEmNome" id="codEstUserEmNome">
+										            <input type="hidden" class="form-control" name="nmEstUserEmNome" id="nmEstUserEmNome">
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Centro de Custo</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="txtCustoUserEmNome" id="txtCustoUserEmNome" readonly>
+										            <input type="hidden" class="form-control" name="codCustoUserEmNome" id="codCustoUserEmNome">
+										            <input type="hidden" class="form-control" name="nmCustoUserEmNome" id="nmCustoUserEmNome">
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Ramal</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="ramalUserEmNome" id="ramalUserEmNome" readonly>
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Telefone</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="foneUserEmNome" id="foneUserEmNome" readonly>
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<div class="form-group">
+											<div class="row">
+										        <label class="col-sm-2 control-label" align='right'>Chefe Imediato</label>
+										        <div class="col-sm-5">
+										            <input type="text" class="form-control" name="nmChefeUserEmNome" id="nmChefeUserEmNome" readonly>
+										            <input type="hidden" class="form-control" name="loginChefeUserEmNome" id="loginChefeUserEmNome">
+										        </div>
+									        </div> <!-- row -->
+										</div> <!-- form-group -->
+										<input type="hidden" name="situacaoUserEmNome" id="situacaoUserEmNome" readonly>
+										<input type="hidden" name="tipoUserEmNome"     id="tipoUserEmNome" readonly>									
+						            </div> <!-- panel-body -->
+						        </div> <!-- panel -->
+					        </div>
+						</div> <!-- fim div_txtEmNome -->
+
+						<!-- ============================================================== -->
+						<!-- estrutura hieraquica do processo                               -->
+						<!-- ============================================================== -->
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-12 col-md-6" id="div_idDiretoria" style="display:block;">						
+									<label id='lbl_idDiretoria' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Diretoria
+										<span style="color:red">*</span>&nbsp;
+										<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+									</label>																
+									<input type="zoom" name="idDiretoria" id="idDiretoria" class="form-control"
+										data-zoom="{
+										'displayKey':'descricao',
+										'datasetId':'ds_lista_processo_totvs',
+										'filterValues':'categoria,1',
+										'fields':[
+											{'field':'descricao','label':'Diretoria','standard': 'true'},
+											{'field':'num_processo','label':'Id'}
+										]}">							
+									<input type="hidden" name="idDiretoriaValue" id="idDiretoriaValue" value="">						
+								</div>
+								<div class="col-xs-12 col-md-6" id="div_idArea" style="display:none;">
+									<div class="form-group">
+										<label id='lbl_idArea' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Área
+											<span style="color:red">*</span>&nbsp;										
+										</label>																
+										<input type="zoom" name="idArea" id="idArea" class="form-control" 									
+											data-zoom="{
+											'displayKey':'descricao',
+											'filterValues':'categoria,2,idDiretoriaValue,0',
+											'datasetId':'ds_lista_processo_totvs',
+											'fields':[
+												{'field':'descricao','label':'Área','standard': 'true'},
+												{'field':'num_processo','label':'Id'}
+											]}"/>
+										<input type="hidden" name="idAreaValue" id="idAreaValue" value="">
+									</div>
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-xs-12 col-md-6" id="div_idMacroProcesso" style="display:none;">
+									<div class="form-group">
+										<label id='lbl_idMacroProcesso' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Macro-Processo
+											<span style="color:red">*</span>&nbsp;										
+										</label>																
+										<input type="zoom" name="idMacroProcesso" id="idMacroProcesso" class="form-control"
+											data-zoom="{
+											'datasetId':'ds_lista_processo_totvs',
+											'filterValues':'categoria,3,idAreaValue,0',
+											'fields':[
+												{'field':'descricao','label':'Macro-Processo','standard': true,'dataorder': 'descricao'},
+												{'field':'num_processo','label':'Id'}
+											]}" />
+										<input type="hidden" name="idMacroProcessoValue" id="idMacroProcessoValue" value="">
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-6" id="div_idProcesso" style="display:none;">
+									<div class="form-group">
+										<label id='lbl_idProcesso' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Processo
+											<span style="color:red">*</span>&nbsp;										
+										</label>																
+										<input type="zoom" name="idProcesso" id="idProcesso" class="form-control"
+										    data-zoom="{
+										    'datasetId':'ds_lista_processo_totvs',
+											'filterValues':'categoria,4,idMacroProcessoValue,0',
+											'fields':[
+												{'field':'descricao','label':'Processo','standard': true,'dataorder': 'descricao'},
+												{'field':'num_processo','label':'Id'}
+											]}" />
+										<input type="hidden" name="idProcessoValue" id="idProcessoValue" value="">
+									</div>
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-xs-12 col-md-12" id="div_idSubProcesso" style="display:none;">
+									<div class="form-group">
+										<label id='lbl_idSubProcesso' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Sub-Processo
+											<span style="color:red">*</span>&nbsp;										
+										</label>																							
+										<input type="zoom" name="idSubProcesso" id="idSubProcesso" class="form-control"
+											data-zoom="{
+											'datasetId':'ds_lista_processo_totvs',
+											'filterValues':'categoria,5,idProcessoValue,0',
+											'fields':[
+												{'field':'descricao','label':'Sub-Processo','standard': true,'dataorder': 'descricao'},
+												{'field':'num_processo','label':'Id'}
+											]}"/>							
+										<input type="hidden" name="idSubProcessoValue" id="idSubProcessoValue" value="">
+										<input type="hidden" name="respSubProcesso" id="respSubProcesso">
+									</div>
+								</div>
+							</div>
+						</div>
+
+		          	</div> <!-- div_secao-->
+					<!-- coloque novo painel aqui -->
+
+					<!-- ============================================================== -->
+					<!-- campo especificos para o formulário                            -->
+					<!-- ============================================================== -->
+					<div class="form-group">
+						<div class="row">		        	
+					    	<div class="col-sm-2">
+								<label id='lbl_txtDataRealizacao' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Data Realização
+									<span style="color:red">*</span>&nbsp;
+									<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+								</label>		
+				        		<div class="input-group date c2">
+									<input type="text" name="txtDataRealizacao" id="txtDataRealizacao" class="form-control" readonly>
+						       		<span class="input-group-addon" id="span_txtDataRealizacao">
+										<span class="fluigicon fluigicon-calendar"></span>
+									</span>
+								</div>
+						       	<input type="hidden" class="form-control" name="txtDataRealizacao_EN" id="txtDataRealizacao_EN" readonly>
+					    	</div>
+					    	<div class="col-sm-2">
+					        	<label id='lbl_horaPrevIni' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Hora Inicial
+					        		<span style="color:red">*</span>
+									<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>			        	
+					        	</label>
+						       	<input type="time" class="form-control text-center" name="horaPrevIni" id="horaPrevIni" onblur='fnDiferencaHorasPrev();'>
+					    	</div>
+					    	<div class="col-sm-2">
+					        	<label id='lbl_horaPrevFim' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Hora Final
+					        		<span style="color:red">*</span>
+									<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>		        		
+					        	</label>
+						       	<input type="time" class="form-control text-center" name="horaPrevFim" id="horaPrevFim" onblur='fnDiferencaHorasPrev();'>
+					    	</div>
+					    	<div class="col-sm-1">
+					        	<label id='lbl_horaPrevTotal' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Total
+					        	</label>
+						       	<input type="text" class="form-control text-center" name="horaPrevTotal" id="horaPrevTotal" readonly>
+					    	</div>
+					    	<div class="col-sm-2">
+								<label id='lbl_txtDataCompensacao' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Data Compensação
+									<span style="color:red">*</span>									
+								</label>		
+				        		<div class="input-group date2">
+									<input type="text" name="txtDataCompensacao" id="txtDataCompensacao" class="form-control" readonly>
+						       		<span class="input-group-addon" id="span_txtDataCompensacao">
+										<span class="fluigicon fluigicon-calendar"></span>
+									</span>
+								</div>
+						       	<input type="hidden" class="form-control" name="txtDataCompensacao_EN" id="txtDataCompensacao_EN" readonly>
+						       	<input type="hidden" class="form-control" name="txtDataRealizacaoDom" id="txtDataRealizacaoDom" readonly>
+					    	</div>					
+						</div>
+					</div>
+
+<div class="alert alert-warning" id='alertaDomingo' style="display:none;">
+    Data da Realização será no domingo. Não é necessário informar a Data de Compensação, as horas serão pagas na folha de pagamento. 
+</div>
+
+
+					<div class="form-group">
+						<div class="row">		        	
+					    	<div class="col-sm-12">
+								<label id='lbl_txtReferencia' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Referência (atividades, projetos, demandas)
+									<span style="color:red">*</span>&nbsp;
+									<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+								</label>		
+								<textarea class="form-control" name="txtReferencia" id="txtReferencia" rows="4"></textarea>
+					    	</div>
+						</div>				
+					</div>
+					<div class="form-group">
+						<div class="row">
+					    	<div class="col-sm-12">
+								<label id='lbl_txtJustificativa' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Justificativa
+									<span style="color:red">*</span>&nbsp;
+									<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+								</label>		
+								<textarea class="form-control" name="txtJustificativa" id="txtJustificativa" rows="4"></textarea>
+					    	</div>
+						</div>				
+					</div>
+
+					<div id="aprv_EmNome" style="display:none;">
+						<div class="row">
+							<div class="col-xs-12 col-md-6">
+							    <div class="form-group">
+							    	<h3>
+							    		<strong>Aprovação da solicitação pelo usuário "Em Nome de:"</strong>
+						    		</h3>
+									<div class="form-group" style="display: none;">
+										<div class="row">		        	
+								        	<div class="col-sm-4">
+								        		<label>Responsavel</label>
+								        		<input type="text"   name="nmRespAtiv_24" 	id="nmRespAtiv_24"    class="form-control" readOnly>
+								        		<input type="hidden" name="loginRespAtiv_24" id="loginRespAtiv_24" class="form-control" readOnly>
+								        	</div>
+								        	<div class="col-sm-2">
+								        		<label>Data</label>
+								        		<input type="text"   name="dtAtiv_24"    id="dtAtiv_24"    class="form-control" readOnly>
+								        		<input type="hidden" name="dtAtiv_EN_24" id="dtAtiv_EN_24" class="form-control" readOnly>
+								        	</div>
+							        	</div>
+						        	</div>
+
+									<div>
+										<label class="checkbox-inline">
+									    	<input type="radio" name="radAprovaEmNome" id="radAprovaEmNomeSim" value="A"> Aprovado
+									    </label>
+										<label class="checkbox-inline">
+									    	<input type="radio" name="radAprovaEmNome" id="radAprovaEmNomeNao" value="R"> Reprovado
+									    </label>
+									    <label>&nbsp;&nbsp;</label>
+										<label id='lbl_radAprovaEmNome' style="cursor:pointer;" onclick="fnAjudaCampo(this);">
+					        				<span style="color:red">*</span>&nbsp;
+					        				<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+					        			</label>
+					        			<input type="hidden" name="h_radAprovaEmNome" id="h_radAprovaEmNome">							  
+									</div>
+						        </div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-md-12">
+							    <div class="form-group">
+									<label for='txtObsAprovaEmNome' id='lbl_txtObsAprovaEmNome' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Observações
+				        				<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+				        			</label>
+							        <textarea class="form-control required" rows="4" name="txtObsAprovaEmNome" id="txtObsAprovaEmNome"></textarea>
+							    </div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Historico da atividade -->
+					<input type="hidden" name="histAtiv_4" id="histAtiv_4">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="form-group">
+								<span id="span_histAtiv_4" style="cursor:pointer;display: none;" onclick="fnMostraOcultaDiv('div_histAtiv_4');"><b>Histórico</b>&nbsp;
+									<span id="span_cont_histAtiv_4" class="badge badge-warning"></span>
+									<div id='div_histAtiv_4' style="display: none;"></div>
+								</span>
+							</div>
+						</div>
+					</div>
+		          	<!-- coloque campos novos aqui -->
+
+		        </div> <!-- panel-body -->
+	
+			</div> <!-- panel-colapse -->
+		</div> <!-- panel panel-default -->
+
+		<p><a name="pontoPainel_5"></a></p>  
+        <!--=======================================================================================-->  
+      	<!-- painel - 2 da atividade 5 - Avaliar Solicitação                                       -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id="painel_ativ_5">
+        	<div class="panel-heading">          
+          		<h4 class="panel-title">
+            		<a class="collapse-icon up" data-toggle="collapse" href="#painelA_ativ_5">2-Avaliar Solicita&ccedil;&atilde;o
+                	<span class="pull-right">
+						<span id="span_num_dias_ativ_5"></span>						
+						<input type="hidden" name="vDataIniAtiv_5" id="vDataIniAtiv_5">
+						<input type="hidden" name="vDataFimAtiv_5" id="vDataFimAtiv_5">
+						<input type="hidden" name="vDiasAtiv_5"    id="vDiasAtiv_5">						
+                	</span> 
+            		</a>
+	              	<br>
+					<em><span class="label label-success" id="span_5"></span></em>
+					<input type="hidden" name="vUserSpan_5" id="vUserSpan_5" value="">
+					<input type="hidden" name="vDateSpan_5" id="vDateSpan_5" value="">
+          		</h4>
+        	</div>
+	        <!--=======================================================================================-->  
+	      	<!-- campos                                                                                -->  
+	     	<!--=======================================================================================-->  
+	        <div id="painelA_ativ_5" class="panel-collapse collapse" >
+		        <div class="panel-body">                
+
+					<div class="form-group" style="display: none;">
+						<div class="row">		        	
+				        	<div class="col-sm-4">
+				        		<label>Avaliador</label>
+				        		<input type="text"   name="nmRespAtiv_5" 	id="nmRespAtiv_5"    class="form-control" readOnly>
+				        		<input type="hidden" name="loginRespAtiv_5" id="loginRespAtiv_5" class="form-control" readOnly>
+				        	</div>
+				        	<div class="col-sm-2">
+				        		<label>Data</label>
+				        		<input type="text"   name="dtAtiv_5"    id="dtAtiv_5"    class="form-control" readOnly>
+				        		<input type="hidden" name="dtAtiv_EN_5" id="dtAtiv_EN_5" class="form-control" readOnly>
+				        	</div>
+			        	</div>
+		        	</div>
+
+					<div class="form-group">
+					    <div class="row">
+					        <div class="col-sm-6">
+					        </div>
+					    </div>
+				        <div class="row">
+				        	<div class="col-sm-6">					        
+							     <label class="control-label radio-inline">
+					            	<input type="radio" name="rsDecisaoAvaliacao" id='rsDecisaoAvaliacao_Aprovada' value='Aprovada' onchange="fnOnChange(this);">&nbsp;Aprovar
+								</label>								
+							     <label class="control-label radio-inline">
+					            	<input type="radio" name="rsDecisaoAvaliacao" id='rsDecisaoAvaliacao_Reprovar' value='Reprovada' onchange="fnOnChange(this);">&nbsp;Reprovar
+								</label>
+					        	<label id='lbl_rsDecisaoAvaliacao' style="cursor:pointer;" onclick="fnAjudaCampo(this);">&nbsp;
+					        		<span style="color:red">*</span>&nbsp;
+					        		<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+					        	</label>
+
+					        </div>
+					        <input type="hidden"  class="form-control" name="h_rsDecisaoAvaliacao" id='h_rsDecisaoAvaliacao'>
+				        </div>
+					</div>
+
+					<div class="form-group" id="div_cod_des_motivo">
+						<div class="row">
+					    	<div class="col-sm-6">
+					        	<label id='lbl_cod_des_motivo' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Motivo
+					        		<span style="color:red">*</span>&nbsp;
+					        		<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+					        	</label>
+						       	<input type="zoom" class="form-control" name="cod_des_motivo" id="cod_des_motivo"
+					       			data-zoom="{ 'datasetId':'dsZoom_vppr015_vp_motivo',
+										'displayKey':'cod_des_motivo',
+										'filterValues': 'idWorkflow,WF-0001,etapa,5',
+										'fields':[
+											{'field':'cod_des_motivo','label':'Descrição','standard':'true','search':'true'},
+											{'field':'des_motivo'    ,'label':'Descrição','visible':'false'},
+											{'field':'cod_motivo'    ,'label':'Codigo'   ,'visible':'false'}
+											]}">
+								<input type="hidden" class="form-control" name="cod_motivo" id="cod_motivo">
+								<input type="hidden" class="form-control" name="des_motivo" id="des_motivo">
+					    	</div>
+				    	</div>
+				    </div>
+
+					<div class="form-group">
+						<div class="row">									       
+				        	<div class="col-sm-12">
+				        		<label id='lbl_edObsAvaliar' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Observações
+				        			<span style="color:red">*</span>&nbsp;
+				        			<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+				        		</label>
+					            <textarea class="form-control" name="edObsAvaliar" id="edObsAvaliar" rows="4"></textarea>
+					        </div>
+					     </div>
+					</div>
+
+					<!-- Historico da atividade -->
+					<input type="hidden" name="histAtiv_5" id="histAtiv_5">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="form-group">
+								<span id="span_histAtiv_5" style="cursor:pointer;display: none;" onclick="fnMostraOcultaDiv('div_histAtiv_5');"><b>Histórico</b>&nbsp;
+									<span id="span_cont_histAtiv_5" class="badge badge-warning"></span>
+									<div id='div_histAtiv_5' style="display: none;"></div>
+								</span>
+							</div>
+						</div>
+					</div>
+
+		          	<!-- coloque campos novos aqui -->
+
+		        </div> <!-- panel-body -->
+
+	        </div> <!-- panel-colapse -->
+      	</div> <!-- panel panel-default -->
+
+		<p><a name="pontoPainel_9"></a></p>  
+        <!--=======================================================================================-->  
+      	<!-- painel - 3 da atividade 9 - Executar                                                  -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id="painel_ativ_9">
+        	<div class="panel-heading">          
+          		<h4 class="panel-title">
+            		<a class="collapse-icon up" data-toggle="collapse" href="#painelA_ativ_9">3-Executar
+            		<span class="pull-right">
+						<span id="span_num_dias_ativ_9"></span>						
+						<input type="hidden" name="vDataIniAtiv_9" id="vDataIniAtiv_9">
+						<input type="hidden" name="vDataFimAtiv_9" id="vDataFimAtiv_9">
+						<input type="hidden" name="vDiasAtiv_9"    id="vDiasAtiv_9">						
+                	</span> 
+            		</a>
+	              	<br>
+					<em><span class="label label-success" id="span_9"></span></em>
+					<input type="hidden" name="vUserSpan_9" id="vUserSpan_9" value="">
+					<input type="hidden" name="vDateSpan_9" id="vDateSpan_9" value="">
+          		</h4>
+        	</div>
+	        <!--=======================================================================================-->  
+	      	<!-- campos                                                                                -->  
+	     	<!--=======================================================================================-->  
+	        <div id="painelA_ativ_9" class="panel-collapse collapse" >
+		        <div class="panel-body">                
+
+					<div class="form-group" style="display: none;">
+						<div class="row">		        	
+				        	<div class="col-sm-4">
+				        		<label>Responsável</label>
+				        		<input type="text"   name="nmRespAtiv_9"    id="nmRespAtiv_9"    class="form-control" readOnly>
+				        		<input type="hidden" name="loginRespAtiv_9" id="loginRespAtiv_9" class="form-control" readOnly>
+				        	</div>
+				        	<div class="col-sm-2">
+				        		<label>Data</label>
+				        		<input type="text"   name="dtAtiv_9"    id="dtAtiv_9"    class="form-control" readOnly>
+				        		<input type="hidden" name="dtAtiv_EN_9" id="dtAtiv_EN_9" class="form-control" readOnly>
+				        	</div>
+			        	</div>
+		        	</div>
+
+					<div class="form-group">
+					    <div class="row">
+					        <div class="col-sm-6">
+					        </div>
+					    </div>
+				        <div class="row">
+				        	<div class="col-sm-7">					        
+							     <label class="control-label radio-inline">
+					            	<input type="radio" name="rsExecutado" id='rsExecutado_Sim' value='Sim' onchange="fnOnChange(this);">&nbsp;Sim - Horas Extras Executadas
+								</label>								
+							    <label class="control-label radio-inline">
+					            	<input type="radio" name="rsExecutado" id='rsExecutado_Nao' value='Nao' onchange="fnOnChange(this);">&nbsp;Não - Horas Extras não Executadas
+								</label>
+					        	<label id='lbl_rsExecutado' style="cursor:pointer;" onclick="fnAjudaCampo(this);">&nbsp;
+					        		<span style="color:red">*</span>&nbsp;
+					        		<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+					        	</label>
+					        </div>
+				        </div>
+					        <input type="hidden"  class="form-control" name="h_rsExecutado" id='h_rsExecutado'>
+					</div>
+
+					<div class="form-group" id="div_executado_sim">
+						<div class="row">		        	
+					    	<div class="col-sm-2">
+								<label id='lbl_txtDataExecucao' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Data Execução
+									<span style="color:red">*</span>&nbsp;
+									<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+								</label>		
+				        		<div class="input-group dateAll2">
+									<input type="text" name="txtDataExecucao" id="txtDataExecucao" class="form-control" readonly>
+						       		<span class="input-group-addon" id="span_txtDataExecucao">
+										<span class="fluigicon fluigicon-calendar"></span>
+									</span>
+								</div>
+						       	<input type="hidden" class="form-control" name="txtDataExecucao_EN" id="txtDataExecucao_EN" readonly>
+					    	</div>
+					    	<div class="col-sm-2">
+					        	<label id='lbl_horaRealIni' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Hora Inicial
+					        		<span style="color:red">*</span>&nbsp;
+					        		<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+					        	</label>
+						       	<input type="time" class="form-control text-center" name="horaRealIni" id="horaRealIni" onblur='fnDiferencaHorasReal();'>
+					    	</div>
+					    	<div class="col-sm-2">
+					        	<label id='lbl_horaRealIni' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Hora Final
+					        		<span style="color:red">*</span>&nbsp;
+					        		<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+					        	</label>
+						       	<input type="time" class="form-control text-center" name="horaRealFim" id="horaRealFim" onblur='fnDiferencaHorasReal();'>
+					    	</div>
+					    	<div class="col-sm-1">
+					        	<label id='lbl_horaRealTotal' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Total
+					        	</label>
+						       	<input type="text" class="form-control text-center" name="horaRealTotal" id="horaRealTotal" onblur='fnDiferencaHorasReal();' readonly>
+					    	</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">									       
+				        	<div class="col-sm-12">
+				        		<label id='lbl_edObsRecDocto' style="cursor:pointer;" onclick="fnAjudaCampo(this);">Observações
+				        			<span style="color:red">*</span>&nbsp;
+				        			<span style='color:blue;' class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+				        		</label>
+					            <textarea class="form-control" name="edObsExecutado" id="edObsExecutado" rows="4"></textarea>
+					        </div>
+					     </div>
+					</div>
+
+					<!-- Historico da atividade -->
+					<input type="hidden" name="histAtiv_9" id="histAtiv_9">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="form-group">
+								<span id="span_histAtiv_9" style="cursor:pointer;display: none;" onclick="fnMostraOcultaDiv('div_histAtiv_9');"><b>Histórico</b>&nbsp;
+									<span id="span_cont_histAtiv_9" class="badge badge-warning"></span>
+									<div id='div_histAtiv_9' style="display: none;"></div>
+								</span>
+							</div>
+						</div>
+					</div>
+
+		          	<!-- coloque campos novos aqui -->
+
+		        </div> <!-- panel-body -->
+
+	        </div> <!-- panel-colapse -->
+      	</div> <!-- panel panel-default -->
+
+		<p><a name="pontoPainel_17"></a></p>  
+        <!--=======================================================================================-->  
+      	<!-- painel - 4 da atividade 17 - Notificar                                                -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id="painel_ativ_17">
+        	<div class="panel-heading">          
+          		<h4 class="panel-title">
+            		<a class="collapse-icon up" data-toggle="collapse" href="#painelA_ativ_17">4-Notificação
+            		<span class="pull-right">
+						<span id="span_num_dias_ativ_17"></span>						
+						<input type="hidden" name="vDataIniAtiv_17" id="vDataIniAtiv_17">
+						<input type="hidden" name="vDataFimAtiv_17" id="vDataFimAtiv_17">
+						<input type="hidden" name="vDiasAtiv_17"    id="vDiasAtiv_17">						
+                	</span> 
+            		</a>
+	              	<br>
+					<em><span class="label label-success" id="span_17"></span></em>
+					<input type="hidden" name="vUserSpan_17" id="vUserSpan_17" value="">
+					<input type="hidden" name="vDateSpan_17" id="vDateSpan_17" value="">
+          		</h4>
+        	</div>
+	        <!--=======================================================================================-->  
+	      	<!-- campos                                                                                -->  
+	     	<!--=======================================================================================-->  
+	        <div id="painelA_ativ_17" class="panel-collapse collapse" >
+		        <div class="panel-body">                
+
+					<div class="form-group" style="display: none;">
+						<div class="row">		        	
+				        	<div class="col-sm-4">
+				        		<label>Responsável</label>
+				        		<input type="text"   name="nmRespAtiv_17"    id="nmRespAtiv_17"    class="form-control" readOnly>
+				        		<input type="hidden" name="loginRespAtiv_17" id="loginRespAtiv_17" class="form-control" readOnly>
+				        	</div>
+				        	<div class="col-sm-2">
+				        		<label>Data</label>
+				        		<input type="text"   name="dtAtiv_17"    id="dtAtiv_17"    class="form-control" readOnly>
+				        		<input type="hidden" name="dtAtiv_EN_17" id="dtAtiv_EN_17" class="form-control" readOnly>
+				        	</div>
+			        	</div>
+		        	</div>
+
+					<div class="alert alert-warning" role="alert">
+						Verifique o painel <b>3-Executar</b> para ter ciência da execução solicitada, depois disso, basta movimentar essa solicitação.
+					</div>
+
+					<!-- Historico da atividade -->
+					<input type="hidden" name="histAtiv_17" id="histAtiv_17">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<div class="form-group">
+								<span id="span_histAtiv_17" style="cursor:pointer;display: none;" onclick="fnMostraOcultaDiv('div_histAtiv_17');"><b>Histórico</b>&nbsp;
+									<span id="span_cont_histAtiv_17" class="badge badge-warning"></span>
+									<div id='div_histAtiv_17' style="display: none;"></div>
+								</span>
+							</div>
+						</div>
+					</div>
+
+		          	<!-- coloque campos novos aqui -->
+
+		        </div> <!-- panel-body -->
+
+	        </div> <!-- panel-colapse -->
+      	</div> <!-- panel panel-default -->
+
+    </div> <!-- fim da opcao op_principal -->
+    
+    <!--=======================================================================================-->  
+    <!-- op_historico                                                                          -->  
+    <!--=======================================================================================-->  
+    <div class="tab-pane fade" id="op_historico">
+        <!--=======================================================================================-->  
+      	<!-- painel - cabeçalho                                                                    -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id='op_historico_painel'>
+            <div class="panel-body">
+
+				<!-- Historico da atividade -->
+				<input type="hidden" name="histGeral" id="histGeral">
+				<div class="row">
+					<div class="col-xs-12 col-md-12">
+						<div class="form-group">
+						<span id="span_histGeral"></span>
+						</div>
+					</div>
+				</div>
+            	
+            </div> <!-- panel-boby -->
+      	</div> <!-- panel panel-info -->
+    </div> <!-- fim da opcao op_historico -->
+    
+    <!--=======================================================================================-->  
+    <!-- op_cancela                                                                              -->  
+    <!--=======================================================================================-->  
+    <div class="tab-pane fade" id="op_cancela">
+        <!--=======================================================================================-->  
+      	<!-- painel - cabeçalho                                                                    -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id='op_cancela_painel'>
+            <div class="panel-body">
+
+            	<!-- implementar aqui -->
+
+            </div> <!-- panel-boby -->
+      	</div> <!-- panel panel-info -->
+		<!-- coloque novo painel aqui -->
+    </div> <!-- fim da opcao menu -->
+
+    <!--=======================================================================================-->  
+    <!-- op_ajuda                                                                              -->  
+    <!--=======================================================================================-->  
+    <div class="tab-pane fade" id="op_ajuda">
+        <!--=======================================================================================-->  
+      	<!-- painel - cabeçalho                                                                    -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id='op_ajuda_painel'>
+            <div class="panel-body">
+	        		<input type="hidden" name="idDoctoAjuda" id="idDoctoAjuda" class="form-control" readOnly>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-1">
+							    <button type="button" name="btSaver" class="btn btn-info" onclick="fnMostraDoctoAjuda();">Ver Documento do Projeto</button>
+							</div>
+					    </div>
+					</div> <!-- form-group -->
+            </div> <!-- panel-boby -->
+      	</div> <!-- panel panel-info -->
+		<!-- coloque novo painel aqui -->
+    </div> <!-- fim da opcao op_ajuda -->
+
+    <!--=======================================================================================-->  
+    <!-- op_sobre                                                                              -->  
+    <!--=======================================================================================-->  
+    <div class="tab-pane fade" id="op_sobre">
+        <!--=======================================================================================-->  
+      	<!-- painel - cabeçalho                                                                    -->  
+     	<!--=======================================================================================-->  
+      	<div class="panel panel-default" id='op_sobre_painel'>
+            <div class="panel-body">
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label>Código do Processo</label>		
+							<input type="text" class="form-control" name="descricaoProcesso" id="descricaoProcesso" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-md-2">
+							<label>Versão Processo</label>		
+							<input type="text" class="form-control" name="versaoProcesso" id="versaoProcesso" readonly>
+						</div>
+						<div class="col-xs-12 col-md-2">
+							<label>Versão Formulário</label>		
+							<input type="text" class="form-control" name="versaoFormProcesso" id="versaoFormProcesso" readonly>
+						</div>
+						<div class="col-xs-12 col-md-2">
+							<label>Data Atualização</label>		
+							<input type="text" class="form-control" name="dtAtualizaFormProcesso" id="dtAtualizaFormProcesso" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label>Projeto</label>		
+							<input type="text" class="form-control" name="nrSolicDemanda" id="nrSolicDemanda" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label>Analista de Negócio</label>		
+							<input type="text" class="form-control" name="nmAnalistaNegocio" id="nmAnalistaNegocio" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label>Usuário Homologador</label>		
+							<input type="text" class="form-control" name="nmUsuarioHomolog" id="nmUsuarioHomolog" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label>Analista Desenv</label>		
+							<input type="text" class="form-control" name="nmAnalistaDesenv" id="nmAnalistaDesenv" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="form-group" style="display: none">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<label>Ajustes</label>		
+							<input type="text" class="form-control" name="descAjustes" id="descAjustes" readonly>
+						</div>
+					</div>
+				</div>
+            </div> <!-- panel-boby -->
+      	</div> <!-- panel panel-info -->
+		<!-- coloque novo painel aqui -->
+    </div> <!-- fim da opcao op_ajuda -->
+
+</div> <!-- myTabContent -->
+</div> <!-- bs-docs-example -->
+</div> <!-- panel-group geral-->
+</form>
+</div> <!-- fluig-style-guide -->
+
+</body>
+<script type="text/javascript">
+
+</script>
+
+
+</html>

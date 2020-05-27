@@ -1,0 +1,1012 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>WF-0001</processId>
+    </processDefinitionPK>
+    <processDescription>WF-0001 Solicitação de Horas Extras</processDescription>
+    <instruction>Workflow destinado a solicitação e aprovação de horas extras.</instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Diretoria Administrativa.Recursos Humanos</categoryId>
+    <managerEngineAllocationId></managerEngineAllocationId>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>true</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>WF-0001 Solicitação de Horas Extras</processId>
+      <version>5</version>
+    </processDefinitionVersionPK>
+    <versionDescription>Corrigido retorno para a atividade 1. Estava retornando para o usuário que solicitou mesmo abrindo em nome de outra pessoa.</versionDescription>
+    <formId>575481</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>1</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>true</inheritFormSecurity>
+    <mobileReady>true</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>130</positionX>
+      <positionY>83</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Aprovar</stateName>
+      <stateDescription>Aprovar</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;loginChefeUserEmNome&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>220</positionX>
+      <positionY>217</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>true</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </processStatePK>
+      <stateName>Executar</stateName>
+      <stateDescription>Executar</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>57600</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;loginEmNome&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>340</positionX>
+      <positionY>73</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>true</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>17</sequence>
+      </processStatePK>
+      <stateName>Notificar</stateName>
+      <stateDescription>Notificar</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>530</positionX>
+      <positionY>200</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>7</sequence>
+      </processStatePK>
+      <stateName>Aprov</stateName>
+      <stateDescription>Aprov</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>370</positionX>
+      <positionY>201</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>31</sequence>
+      </processStatePK>
+      <stateName>auto</stateName>
+      <stateDescription>auto</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>120</positionX>
+      <positionY>201</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>15</sequence>
+      </processStatePK>
+      <stateName>Terminação imediata de processo</stateName>
+      <stateDescription>Terminação imediata de processo</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>570</positionX>
+      <positionY>90</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>5</version>
+        <sequence>7</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;rsDecisaoAvaliacao&quot;)==&quot;Aprovada&quot;</condition>
+      <destinationSequenceId>9</destinationSequenceId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>5</version>
+        <sequence>7</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;rsDecisaoAvaliacao&quot;)==&quot;Reprovada&quot;</condition>
+      <destinationSequenceId>4</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;loginEmNome&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>5</version>
+        <sequence>31</sequence>
+      </conditionProcessStatePK>
+      <condition>true</condition>
+      <destinationSequenceId>5</destinationSequenceId>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>8</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>7</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>10</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>sim</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>18</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>9</initialStateSequence>
+      <finalStateSequence>17</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>19</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>17</initialStateSequence>
+      <finalStateSequence>15</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>32</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>31</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>33</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>31</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <linkSequence>34</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskComplete</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskComplete(colleagueId,nextSequenceId,userList){&#xd;
+	&#xd;
+	var nrAtividade  = getValue(&quot;WKNumState&quot;);&#xd;
+	var nrSolic      = getValue(&quot;WKNumProces&quot;);&#xd;
+	&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: afterTaskComplete&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; + getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;colleagueId: &quot;    + colleagueId);&#xd;
+	log.info(&quot;nextSequenceId: &quot; + nextSequenceId.toString());&#xd;
+	log.info(&quot;userList: &quot;       + userList);&#xd;
+	log.info(&quot;nrAtividade: &quot;    + nrAtividade.toString());&#xd;
+	log.info(&quot;nrSolic: &quot;        + nrSolic);&#xd;
+	&#xd;
+	//===========================================================================&#xd;
+	// Guardar o login do usuario, data e hora que finalizou a atividade&#xd;
+	//===========================================================================&#xd;
+	if(nrAtividade == 4)  { fnGuardaUsuario(nrAtividade); }&#xd;
+	if(nrAtividade == 5)  { fnGuardaUsuario(nrAtividade); }&#xd;
+	if(nrAtividade == 9)  { fnGuardaUsuario(nrAtividade); }&#xd;
+	if(nrAtividade == 17) { fnGuardaUsuario(nrAtividade); }&#xd;
+&#xd;
+	//=========================================================================&#xd;
+	// Calcular os dias da atividade e guardar nos campos ocultos - inicia na 2&#xd;
+	//=========================================================================&#xd;
+	if(nrAtividade == 5)  { calculaDiasAtividade(nrAtividade); }&#xd;
+	if(nrAtividade == 9)  { calculaDiasAtividade(nrAtividade); }&#xd;
+	if(nrAtividade == 17) { calculaDiasAtividade(nrAtividade); }&#xd;
+&#xd;
+&#xd;
+	function fnGuardaUsuario(nrAtividade) {&#xd;
+		//===========================================================================&#xd;
+		// Guardar o login do usuario, data e hora que finalizou a atividade&#xd;
+		//===========================================================================&#xd;
+		aux = fnBuscarDataHora(&apos;data&apos;); //retornar dd/mm/aaaa&#xd;
+		aux = aux.split(&apos;/&apos;);&#xd;
+		aux = aux[2] + &quot;-&quot; + aux[1] + &quot;-&quot; + aux[0] + &quot; &quot; + fnBuscarDataHora(&apos;hora&apos;);&#xd;
+		hAPI.setCardValue(&apos;vUserSpan_&apos; + nrAtividade.toString(), colleagueId);  &#xd;
+		hAPI.setCardValue(&apos;vDateSpan_&apos; + nrAtividade.toString(), aux);  //guarda no formato aaaa-mm-dd:hh:mm		&#xd;
+	}&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId){&#xd;
+	&#xd;
+	var nrAtividade  = getValue(&quot;WKNumState&quot;);&#xd;
+	var nrSolic      = processId.toString();&#xd;
+	var matUsuario   = getValue(&quot;WKUser&quot;);&#xd;
+&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: afterProcessCreate&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; + getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;processId: &quot;      + processId.toString());&#xd;
+	//log.info(&quot;nrAtividade: &quot;    + nrAtividade.toString());&#xd;
+	log.info(&quot;nrSolic: &quot;        + nrSolic);&#xd;
+&#xd;
+	//=============================================================================================&#xd;
+	// Rotina padrão: &#xd;
+	//=============================================================================================&#xd;
+	hAPI.setCardValue(&quot;nrSolic&quot;, nrSolic);	&#xd;
+    var aux = fnBuscarDataHora(&apos;data&apos;); //retorna dd/mm/aaaa&#xd;
+    aux = aux.split(&apos;/&apos;);&#xd;
+	hAPI.setCardValue(&quot;dtAberturaSolic&quot;, fnBuscarDataHora(&apos;data&apos;)); //grava dd/mm/aaaa&#xd;
+	hAPI.setCardValue(&quot;dtAberturaSolic_EN&quot;, aux[2] + &apos;-&apos; + aux[1] + &apos;-&apos; + aux[0]); //grava aaaa-mm-dd&#xd;
+	hAPI.setCardValue(&quot;hrAberturaSolic&quot;, fnBuscarDataHora(&quot;hora&quot;));&#xd;
+	hAPI.setCardValue(&quot;situacaoSolic&quot;  , &quot;Aberto&quot;);&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessFinish</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessFinish(processId){&#xd;
+	&#xd;
+	var nrAtividade  = getValue(&quot;WKNumState&quot;);&#xd;
+	var nrSolic      = getValue(&quot;WKNumProces&quot;);&#xd;
+	&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: afterProcessFinish&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; + getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;processId: &quot;      + processId.toString());&#xd;
+	log.info(&quot;nrAtividade: &quot;    + nrAtividade.toString());&#xd;
+	log.info(&quot;nrSolic: &quot;        + nrSolic);&#xd;
+&#xd;
+	//=============================================================================================&#xd;
+	// Rotina padrão: &#xd;
+	//=============================================================================================&#xd;
+    var aux = fnBuscarDataHora(&apos;data&apos;); //retorna dd/mm/aaaa&#xd;
+    aux = aux.split(&apos;/&apos;);&#xd;
+	hAPI.setCardValue(&quot;dtFimSolic&quot;	, fnBuscarDataHora(&apos;data&apos;)); //grava dd/mm/aaaa&#xd;
+	hAPI.setCardValue(&quot;dtFimSolic_EN&quot;	, aux[2] + &apos;-&apos; + aux[1] + &apos;-&apos; + aux[0]); //grava aaaa-mm-dd&#xd;
+	hAPI.setCardValue(&quot;hrFimSolic&quot;  , fnBuscarDataHora(&quot;hora&quot;));&#xd;
+	hAPI.setCardValue(&quot;situacaoSolic&quot;    , &quot;Finalizado&quot;);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>calculaDiasAtividade</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>//==================================================================================&#xd;
+// Objetivo: Gravar a data fim da atividade e calcular o numero total de dias&#xd;
+//==================================================================================&#xd;
+function calculaDiasAtividade(atividade){&#xd;
+	&#xd;
+	log.info(&quot;=== calculaDiasAtividade&quot;);&#xd;
+&#xd;
+	var dif = 0;		&#xd;
+	var dataIniAtiv = hAPI.getCardValue(&quot;vDataIniAtiv_&quot; + atividade);&#xd;
+	var dataFimAtiv = fnBuscarDataHora(&apos;data&apos;);&#xd;
+	var diasAtiv    = hAPI.getCardValue(&quot;vDiasAtiv_&quot; + atividade);&#xd;
+&#xd;
+log.info(dataIniAtiv);&#xd;
+log.info(dataFimAtiv);&#xd;
+log.info(diasAtiv);&#xd;
+&#xd;
+	dataIniAtiv = dataIniAtiv.split(&quot;/&quot;);	&#xd;
+	var diaIni = dataIniAtiv[0];&#xd;
+	var mesIni = dataIniAtiv[1] - 1;&#xd;
+	var anoIni = dataIniAtiv[2];&#xd;
+	var dataIni = new Date(anoIni, mesIni, diaIni);&#xd;
+&#xd;
+log.info(dataIni);&#xd;
+	&#xd;
+	dataFimAtiv = dataFimAtiv.split(&quot;/&quot;);	&#xd;
+	var diaFim = dataFimAtiv[0];&#xd;
+	var mesFim = dataFimAtiv[1] - 1;&#xd;
+	var anoFim = dataFimAtiv[2];&#xd;
+	var dataFim1 = new Date(anoFim, mesFim, diaFim);&#xd;
+&#xd;
+log.info(dataFim1);&#xd;
+	&#xd;
+	dif = parseInt((dataFim1 - dataIni) / (1000 * 60 * 60 * 24));&#xd;
+	&#xd;
+log.info(&quot;=== calculaDiasAtividade dif: &quot; + dif);&#xd;
+	&#xd;
+	if (diasAtiv != &quot;&quot;) { dif = dif + parseInt(diasAtiv); }&#xd;
+	&#xd;
+log.info(&quot;=== calculaDiasAtividade dif: &quot; + dif.toString());&#xd;
+	&#xd;
+	hAPI.setCardValue(&quot;vDiasAtiv_&quot; + atividade, dif.toString());&#xd;
+	hAPI.setCardValue(&quot;vDataFimAtiv_&quot; + atividade, fnBuscarDataHora(&apos;data&apos;));	&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>onNotify</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function onNotify(subject, receivers, template, params){&#xd;
+/*&#xd;
+	var nrAtividade   = getValue(&quot;WKNumState&quot;);&#xd;
+	var nrSolic       = getValue(&quot;WKNumProces&quot;);&#xd;
+	var proxAtiv      = getValue(&quot;WKNextState&quot;);&#xd;
+	var nrAtividadeAtual = getValue(&apos;WKCurrentState&apos;);&#xd;
+&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: onNotify&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; 			+ getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;nrAtividade: &quot;    + nrAtividade.toString());&#xd;
+	log.info(&quot;proxAtiv: &quot;       + proxAtiv.toString());&#xd;
+	log.info(&quot;AtivAtual: &quot;      + nrAtividadeAtual.toString());&#xd;
+	log.info(&quot;nrSolic: &quot;        + nrSolic);&#xd;
+&#xd;
+	log.info(&quot;subject: &quot;    	+ subject);&#xd;
+	log.info(&quot;receivers: &quot;    	+ receivers);&#xd;
+	log.info(&quot;template: &quot;    	+ template);&#xd;
+	//log.info(&quot;params: &quot;    		+ params);&#xd;
+&#xd;
+	//Ao notificar o atraso para o responsável dessa atividade a chefia imediata também receberá a notificação.&#xd;
+	if(nrAtividade == 16) { //16-Devolver	&#xd;
+&#xd;
+	    //Se o template for qq um sobre atraso de tarefa&#xd;
+	    if (template.match(&quot;TPLOVERDUE_TASK_&quot;) != null) { &#xd;
+&#xd;
+    	    //Pegar o login da chefia imediata&#xd;
+    	    login = hAPI.getCardValue(&quot;loginChefeUserAberturaSolic&quot;);&#xd;
+    	    log.info(&quot;== notificar login= &quot; + login);&#xd;
+&#xd;
+    	    mail = fnBuscarColleague(login,&quot;mail&quot;);&#xd;
+    	    log.info(&quot;== notificar mail= &quot; + mail);&#xd;
+&#xd;
+    	    if (mail != &apos;&apos; &amp;&amp; mail != null) {    	    	&#xd;
+    	    	receivers.add(mail);&#xd;
+    	    }&#xd;
+    	}&#xd;
+    }&#xd;
+*/&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterCancelProcess</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterCancelProcess(colleagueId,processId){&#xd;
+		&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: afterCancelProcess&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; + getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;colleagueId: &quot; + colleagueId);&#xd;
+	log.info(&quot;processId: &quot;   + processId.toString());&#xd;
+	&#xd;
+	try{&#xd;
+		loading.setMessage(&quot;Cancelando solicitação...&quot;);&#xd;
+	} catch(e) {&#xd;
+		log.info(&quot;========= Erro ao executar LOADING ===========&quot;);&#xd;
+	}&#xd;
+&#xd;
+	//=============================================================================================&#xd;
+	// Rotina padrão: Necessário gravar data fim para mostrar mensagem no formulário&#xd;
+	//=============================================================================================&#xd;
+    var aux = fnBuscarDataHora(&apos;data&apos;); //retorna dd/mm/aaaa&#xd;
+    aux = aux.split(&apos;/&apos;);&#xd;
+	hAPI.setCardValue(&quot;dtFimSolic&quot;	, fnBuscarDataHora(&apos;data&apos;)); //grava dd/mm/aaaa&#xd;
+	hAPI.setCardValue(&quot;dtFimSolic_EN&quot;	, aux[2] + &apos;-&apos; + aux[1] + &apos;-&apos; + aux[0]); //grava aaaa-mm-dd&#xd;
+	hAPI.setCardValue(&quot;hrFimSolic&quot;  , fnBuscarDataHora(&quot;hora&quot;));&#xd;
+	hAPI.setCardValue(&quot;situacaoSolic&quot;    , &quot;Cancelado&quot;);&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>fnBuscarDataHora</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function fnBuscarDataHora(tipo){&#xd;
+	&#xd;
+	var fullDate = new Date();&#xd;
+	var hora     = fullDate.getHours();&#xd;
+	var minuto   = fullDate.getMinutes();&#xd;
+	&#xd;
+	if (hora &lt;= 9) {&#xd;
+		hora = &quot;0&quot; + hora;&#xd;
+	}&#xd;
+	&#xd;
+	if (minuto &lt;= 9){	&#xd;
+		minuto = &quot;0&quot; + minuto;&#xd;
+	}&#xd;
+	&#xd;
+	var hrRetorno = hora + &quot;:&quot; + minuto;&#xd;
+	var dia = fullDate.getDate().toString();&#xd;
+&#xd;
+	if(dia.length == 1){&#xd;
+		dia = &quot;0&quot; + dia;&#xd;
+	}&#xd;
+	var mes = (fullDate.getMonth()+1).toString();&#xd;
+&#xd;
+	if(mes.length == 1){&#xd;
+		mes = &quot;0&quot; + mes;&#xd;
+	}&#xd;
+	&#xd;
+	var dtRetorno = dia + &quot;/&quot; + mes + &quot;/&quot; + fullDate.getFullYear();&#xd;
+	&#xd;
+	if (tipo == &quot;data&quot;) {&#xd;
+		return dtRetorno;&#xd;
+	}&#xd;
+	if (tipo == &quot;hora&quot;) {&#xd;
+		return hrRetorno;&#xd;
+	}	&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>fnBuscarColleague</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function fnBuscarColleague(pLogin,pCampo){&#xd;
+/******************************************************************************************************&#xd;
+  Objetivo: Retornar uma informação do colaborador que está no dataset colleague&#xd;
+            Isso evita trafegar todos os campos do dataset colleague quando precisamos apenas de 1&#xd;
+&#xd;
+  001 - 30/08/2014 - Denilson Silva &#xd;
+&#xd;
+********************************************************************************************************/&#xd;
+  var c1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, pLogin, pLogin, ConstraintType.MUST);&#xd;
+  var campos = [&apos;colleaguePK.colleagueId&apos;];&#xd;
+  campos.push(pCampo);&#xd;
+  var dsColleague = DatasetFactory.getDataset(&quot;colleague&quot;, campos, new Array(c1), null);&#xd;
+  if (dsColleague.rowsCount &lt;= 0) { return &quot;não achou colaborador&quot;;}&#xd;
+  retorno = dsColleague.getValue(0,pCampo);&#xd;
+  return retorno;&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeStateEntry</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeStateEntry(sequenceId){&#xd;
+	&#xd;
+	var nrAtividade  = getValue(&quot;WKNumState&quot;);&#xd;
+	var nrSolic      = getValue(&quot;WKNumProces&quot;);&#xd;
+	&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: beforeStateEntry&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; + getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;sequenceId: &quot;     + sequenceId.toString());&#xd;
+	log.info(&quot;nrAtividade: &quot;    + nrAtividade.toString());&#xd;
+	log.info(&quot;nrSolic: &quot;        + nrSolic);&#xd;
+&#xd;
+	//=========================================================================================&#xd;
+	// Guardar a data de inicio da atividade para o calculo dos dias da atividade - inicia na 2&#xd;
+	//=========================================================================================&#xd;
+	if(nrAtividade == 5)  { fnGuardaDataInicio(nrAtividade); }&#xd;
+	if(nrAtividade == 9)  { fnGuardaDataInicio(nrAtividade); }&#xd;
+	if(nrAtividade == 17) { fnGuardaDataInicio(nrAtividade); }&#xd;
+&#xd;
+&#xd;
+	function fnGuardaDataInicio(atividade) {&#xd;
+		hAPI.setCardValue(&quot;vDataIniAtiv_&quot; + nrAtividade.toString(), fnBuscarDataHora(&apos;data&apos;));			&#xd;
+	}&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskCreate</eventId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskCreate(colleagueId){&#xd;
+	&#xd;
+	var nrAtividade   = getValue(&quot;WKNumState&quot;);&#xd;
+	var nrSolic       = getValue(&quot;WKNumProces&quot;);&#xd;
+	var proxAtiv      = getValue(&quot;WKNextState&quot;);&#xd;
+	var nrAtividadeAtual = getValue(&apos;WKCurrentState&apos;);&#xd;
+&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;evento: afterTaskCreate&quot;);&#xd;
+	log.info(&quot;==================================&quot;);&#xd;
+	log.info(&quot;WKDef: &quot; + getValue(&quot;WKDef&quot;));&#xd;
+	log.info(&quot;colleagueId: &quot;    + colleagueId);&#xd;
+	log.info(&quot;nrAtividade: &quot;    + nrAtividade.toString());&#xd;
+	//log.info(&quot;proxAtiv: &quot;       + proxAtiv.toString());&#xd;
+	log.info(&quot;AtivAtual: &quot;      + nrAtividadeAtual.toString());&#xd;
+	log.info(&quot;nrSolic: &quot;        + nrSolic);&#xd;
+&#xd;
+	//=================================================================================&#xd;
+	// Rotina Padrão: Guardar o usuario atividade atual&#xd;
+	//=================================================================================	&#xd;
+    hAPI.setCardValue(&quot;atividadeAtual&quot;, nrAtividade);	 &#xd;
+	if (colleagueId != &quot;System:Auto&quot;) { &#xd;
+		hAPI.setCardValue(&quot;loginRespAtual&quot;, colleagueId);&#xd;
+	}	&#xd;
+	descricao = &apos;atividade não identificada&apos;;&#xd;
+	if(nrAtividade == 4)   { descricao = &apos;Início&apos;; }&#xd;
+	if(nrAtividade == 5)   { descricao = &apos;Avaliar Solicitacao&apos;; }&#xd;
+	if(nrAtividade == 9)   { descricao = &apos;Executar&apos;; }&#xd;
+	if(nrAtividade == 17)  { descricao = &apos;Notificar&apos;; }&#xd;
+	if(nrAtividade == 25)  { descricao = &apos;Fim&apos;; }&#xd;
+	hAPI.setCardValue(&quot;descAtividadeAtual&quot;, descricao);	 &#xd;
+&#xd;
+	if(nrAtividade == 4)  { &#xd;
+		aux = hAPI.getCardValue(&quot;nrSolic&quot;);&#xd;
+		hAPI.setCardValue(&quot;identificador&quot;, aux);	 &#xd;
+	}&#xd;
+&#xd;
+&#xd;
+	//=================================================================================&#xd;
+	// Rotina Especifica: Calcular a data prazo da atividade&#xd;
+	//=================================================================================	&#xd;
+	if(proxAtiv == 9) { //9-Executar&#xd;
+		dtBase     = hAPI.getCardValue(&quot;txtDataCompensacao&quot;); //hAPI.getCardValue(&quot;dtEnvioFisico&quot;);&#xd;
+		prazoHoras = 8;      // + 1 dia de 8 horas&#xd;
+		horario    = 64800;  // 18horas&#xd;
+		dt = fnSetarPrazo(dtBase,prazoHoras, horario);&#xd;
+	}&#xd;
+&#xd;
+&#xd;
+	//===============================================================================&#xd;
+	// Calcula prazo da atividade a partir de uma data informada + x horas&#xd;
+	//===============================================================================&#xd;
+	function fnSetarPrazo(dtBase,prazoHoras, horario) {&#xd;
+		//dtBase     = será a data inicial ou a data prazo desejada&#xd;
+		//prazoHoras = será a quantidade de horas a partir da dtBase, se passar 0 o prazo será a dtBase&#xd;
+		//horario    = será a hora desejada para o prazo&#xd;
+&#xd;
+		calendario = &quot;Default&quot;;&#xd;
+		//horario    = 64800; // 64800 = 18h&#xd;
+&#xd;
+		log.info(&apos;============&apos;);&#xd;
+		log.info(&apos;fnSetarPrazo&apos;);&#xd;
+		log.info(&apos;dtBase..... &apos; + dtBase);&#xd;
+		log.info(&apos;prazoHoras. &apos; + prazoHoras);&#xd;
+		log.info(&apos;horario.... &apos; + horario);&#xd;
+&#xd;
+		aux = dtBase.split(&apos;/&apos;);&#xd;
+		dia = parseInt(aux[0]);&#xd;
+		mes = parseInt(aux[1]);&#xd;
+		ano = parseInt(aux[2]);&#xd;
+		&#xd;
+		var dtInicial = new Date();&#xd;
+		//seta o dia, mês (Janeiro é 0) e ano&#xd;
+		dtInicial.setDate(dia);&#xd;
+		dtInicial.setMonth(mes -1);&#xd;
+		dtInicial.setFullYear(ano);&#xd;
+		&#xd;
+		// A partir da data inicial + 40 horas (equivalente a 8horas por dia * 5 dias = 40 horas )&#xd;
+	    var obj      = hAPI.calculateDeadLineHours(dtInicial, 50000, prazoHoras, calendario); // retorna [Ljava.lang.Object;@3710124b&#xd;
+	    var dt       = obj[0]; //retorna Tue Oct 30 12:00:01 BRST 2018&#xd;
+	    //var segundos = obj[1]; //retorna 43201&#xd;
+		&#xd;
+	    log.info(dt);&#xd;
+&#xd;
+	    hAPI.setDueDate(getValue(&quot;WKNumProces&quot;), 0, colleagueId, dt, horario);	&#xd;
+&#xd;
+	    return dt;&#xd;
+&#xd;
+	}&#xd;
+&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>145</height>
+      <width>711</width>
+      <positionX>10</positionX>
+      <positionY>27</positionY>
+      <stateName>Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d0daae</color>
+      <height>145</height>
+      <width>711</width>
+      <positionX>10</positionX>
+      <positionY>171</positionY>
+      <stateName>Gestor do Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>WF-0001</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>
